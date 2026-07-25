@@ -1,0 +1,372 @@
+/* ОБНУЛЕНИЕ СТИЛЕЙ — убираем стандартные отступы браузера */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ОБЩИЕ СТИЛИ ДЛЯ САЙТА */
+body {
+    background-color: #0d0f12; /* Глубокий темный фон */
+    color: #e2e8f0; /* Светлый текст */
+    line-height: 1.6;
+}
+
+/* ШАПКА САЙТА (HEADER) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #161920;
+    border-bottom: 2px solid #00f2fe; /* Неоновая линия снизу */
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Подсветка слова Master в логотипе */
+header .logo::shadow {
+    color: #feb600;
+}
+
+header nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #3204ea; /* Синее свечение при наведении */
+}
+
+/* ГЛАВНЫЙ БАННЕР (HERO SECTION) */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135px, #161920 0%, #0d0f12 100%);
+    border-bottom: 1px solid #232936;
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+.hero p {
+    font-size: 18px;
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+/* КНОПКА ЗАЯВКИ */
+.cta-btn {
+    background: linear-gradient(90px, #00f2fe, #4facfe); /* Неоновый градиент */
+    color: #f20303;
+    border: none;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px); /* Кнопка слегка приподнимается */
+    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.6);
+}
+
+/* БЛОК С УСЛУГАМИ (SERVICES) */
+#services {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Сетка для карточек */
+.services-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Чтобы на смартфонах карточки переносились */
+}
+
+/* СТИЛЬ КАРТОЧКИ УСЛУГИ */
+.card {
+    background-color: #161920;
+    flex: 1;
+    min-width: 250px;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #232936;
+    text-align: left;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.card:hover {
+    border-color: #00f2fe; /* Подсветка карточки при наведении */
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.card p {
+    color: #94a3b8;
+    font-size: 15px;
+}
+/* ФОН ДЛЯ МОДАЛЬНОГО ОКНА (ЗАТЕМНЕНИЕ) */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный */
+    z-index: 1000; /* Чтобы окно было поверх всего сайта */
+    justify-content: center;
+    align-items: center;
+}
+
+/* САМО ОКНО С КОНТЕНТОМ */
+.modal-content {
+    background-color: #161920;
+    padding: 40px;
+    border-radius: 16px;
+    border: 2px solid #00f2fe;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+}
+
+/* КНОПКА ЗАКРЫТИЯ (КРЕСТИК) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff4757; /* Краснеет при наведении */
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.modal-content p {
+    color: #94a3b8;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* СТИЛИ ДЛЯ ИНПУТОВ И ПОЛЕЙ ВВОДА */
+#repairForm input, #repairForm select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    background-color: #0d0f12;
+    border: 1px solid #232936;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#repairForm input:focus, #repairForm select:focus {
+    border-color: #00f2fe; /* Подсветка поля при клике */
+}
+
+#repairForm button {
+    width: 100%;
+    margin-top: 10px;
+}
+/* БЛОК ЦЕН */
+#prices {
+    padding: 80px 10%;
+    text-align: center;
+    background-color: #11141a;
+}
+
+.section-subtitle {
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+/* КНОПКИ ПЕРЕКЛЮЧЕНИЯ В КЛАДОК */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    background-color: #161920;
+    color: #94a3b8;
+    border: 1px solid #232936;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: #fff;
+    border-color: #00f2fe;
+}
+
+.tab-btn.active {
+    background: linear-gradient(90deg, #00f2fe, #4facfe);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+/* ТАБЛИЦА ЦЕН */
+.price-table-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #161920;
+    border-radius: 12px;
+    border: 1px solid #232936;
+    overflow: hidden;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.price-table th, .price-table td {
+    padding: 18px 25px;
+}
+
+.price-table th {
+    background-color: #1a1e27;
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #232936;
+}
+
+.price-table tr {
+    border-bottom: 1px solid #232936;
+    transition: background-color 0.2s;
+}
+
+.price-table tr:last-child {
+    border-bottom: none;
+}
+
+.price-table tr:hover {
+    background-color: #1c212b;
+}
+
+.price-table td:last-child {
+    color: #00f2fe;
+    font-weight: bold;
+}
+/* МЕДИА-ЗАПРОС ДЛЯ СМАРТФОНОВ И ПЛАНШЕТОВ */
+@media (max-width: 768px) {
+    /* Уменьшаем отступы по бокам для всего сайта */
+    header, #services, #prices {
+        padding: 40px 5%;
+    }
+
+    /* Перестраиваем шапку сайта вертикально */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 20px 5%;
+    }
+
+    header nav {
+        display: flex;
+        gap: 10px;
+    }
+
+    header nav a {
+        margin-left: 0;
+        font-size: 14px;
+    }
+
+    /* Уменьшаем размеры главного баннера */
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 28px; /* Уменьшаем шрифт заголовка, чтобы он влезал на экран */
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    /* Карточки услуг теперь будут растягиваться на всю ширину экрана по одной */
+    .services-grid {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    /* Сжимаем кнопки переключения прайс-листа */
+    .tabs {
+        flex-wrap: wrap; /* Если не влезут в ряд — перенесутся */
+        gap: 8px;
+    }
+
+    .tab-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        flex: 1; /* Кнопки поделят пространство поровну */
+        min-width: 100px;
+    }
+
+    /* Настраиваем таблицу для мобильных */
+    .price-table th, .price-table td {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    /* Делаем модальное окно чуть компактнее */
+    .modal-content {
+        padding: 30px 20px;
+    }
+}

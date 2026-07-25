@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ремонт игровых приставок | Профессиональный сервис</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="logo">SilverBox</div>
+        <nav>
+            <a href="#services">Услуги</a>
+            <a href="#prices">Цены</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <!-- Главный баннер (Первый экран) -->
+    <section class="hero">
+        <h1>Ремонт и обслуживание игровых приставок</h1>
+        <p>Чистка от пыли, замена термопасты, ремонт геймпадов и замена лазеров с гарантией.</p>
+        <button class="cta-btn">Оставить заявку</button>
+    </section>
+
+    <!-- Блок с услугами -->
+    <section id="services">
+        <h2>Наши услуги</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Чистка и замена термопасты</h3>
+                <p>Приставка шумит или греется? Очистим от пыли и заменим термопасту за 1 час.</p>
+            </div>
+            <div class="card">
+                <h3>Ремонт джойстиков</h3>
+                <p>Устраним дрифт стиков, залипание кнопок и проблемы с аккумулятором.</p>
+            </div>
+            <div class="card">
+                <h3>Сложный ремонт</h3>
+                <p>Пайка чипов, замена разъемов HDMI, ремонт блоков питания и дисководов.</p>
+            </div>
+        </div>
+        <!-- Блок с ценами -->
+    <section id="prices">
+        <h2>Стоимость ремонта</h2>
+        <p class="section-subtitle">Выберите вашу платформу, чтобы увидеть актуальные цены</p>
+        
+        <!-- Кнопки переключения платформ -->
+        <div class="tabs">
+            <button class="tab-btn active" data-platform="ps">PlayStation</button>
+            <button class="tab-btn" data-platform="xbox">Xbox</button>
+            <button class="tab-btn" data-platform="nintendo">Nintendo</button>
+        </div>
+
+        <!-- Таблица с ценами -->
+        <div class="price-table-container">
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Услуга</th>
+                        <th>Срок</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
+                <tbody id="priceLists">
+                    <!-- Сюда JavaScript будет подставлять нужные строки -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+<!-- Модальное окно (изначально скрыто) -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Оставить заявку</h2>
+            <p>Заполните форму, и мы свяжемся с вами в течение 10 минут</p>
+            
+            <form id="repairForm">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Номер телефона" required>
+                <select required>
+                    <option value="" disabled selected>Выберите вашу приставку</option>
+                    <option value="ps5">PlayStation 5</option>
+                    <option value="ps4">PlayStation 4</option>
+                    <option value="xbox">Xbox Series X / S</option>
+                    <option value="nintendo">Nintendo Switch</option>
+                    <option value="other">Другая модель</option>
+                </select>
+                <button type="submit" class="cta-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
