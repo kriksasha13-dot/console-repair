@@ -370,3 +370,40 @@ header nav a:hover {
         padding: 30px 20px;
     }
 }
+/* КЛАССЫ ДЛЯ АНИМАЦИИ ПРИ СКРОЛЛЕ */
+
+/* Начальное состояние: элемент скрыт и опущен на 50px вниз */
+.anim-hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out; /* Плавность анимации — 0.8 секунды */
+}
+
+/* Состояние после появления: элемент становится видимым и возвращается на место */
+.anim-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Добавим небольшую задержку для карточек, чтобы они появлялись по очереди */
+.services-grid .card:nth-child(1) { transition-delay: 0s; }
+.services-grid .card:nth-child(2) { transition-delay: 0.2s; }
+.services-grid .card:nth-child(3) { transition-delay: 0.4s; }
+/* АНИМАЦИЯ ДЛЯ ПЕРВОГО ЭКРАНА (ИСПРАВЛЕННАЯ) */
+
+/* Изначально скрываем элементы с классом hero-fade */
+.hero .hero-fade {
+    opacity: 0 !important; /* !important гарантирует, что старые стили не перебьют это правило */
+    transform: scale(0.95) translateY(10px) !important;
+    transition: opacity 0.8s ease, transform 0.8s ease !important;
+}
+
+/* Когда добавляется класс hero-active, элементы плавно проявляются */
+.hero.hero-active .hero-fade {
+    opacity: 1 !important;
+    transform: scale(1) translateY(0) !important;
+}
+
+/* Очередь появления */
+.hero.hero-active p.hero-fade { transition-delay: 0.3s !important; }
+.hero.hero-active .cta-btn.hero-fade { transition-delay: 0.6s !important; }

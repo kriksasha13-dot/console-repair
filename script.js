@@ -83,3 +83,27 @@ tabButtons.forEach(button => {
 
 // Запускаем отображение PlayStation по умолчанию при старте страницы
 renderPrices('ps');
+// АНИМАЦИЯ ПРИ ПРОКРУТКЕ (СКРОЛЛЕ)
+
+// 1. Создаем специальный наблюдатель (Observer)
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // Если элемент появился в зоне видимости экрана хотя бы на 15%
+        if (entry.isIntersecting) {
+            entry.target.classList.add('anim-show'); // Добавляем класс анимации
+        }
+    });
+}, {
+    threshold: 0.15 // Процент видимости элемента для срабатывания (15%)
+});
+
+// 2. Находим все скрытые элементы на странице и включаем для них слежку
+const hiddenElements = document.querySelectorAll('.anim-hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+// АНИМАЦИЯ ПЕРВОГО ЭКРАНА ПРИ ЗАГРУЗКЕ
+window.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        heroSection.classList.add('hero-active');
+    }
+});
