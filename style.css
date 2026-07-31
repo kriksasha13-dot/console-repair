@@ -1,11 +1,3 @@
-/* ОБНУЛЕНИЕ СТИЛЕЙ — убираем стандартные отступы браузера */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
 /* ОБЩИЕ СТИЛИ ДЛЯ САЙТА */
 body {
     background-color: #0d0f12; /* Глубокий темный фон */
@@ -119,12 +111,16 @@ header nav a:hover {
     border-radius: 12px;
     border: 1px solid #232936;
     text-align: left;
-    transition: border-color 0.3s, transform 0.3s;
+    /* Плавность изменений для всех свойств (transform, box-shadow, background) за 0.3 секунды */
+    transition: all 0.3s ease; 
 }
 
+/* УЛУЧШЕННЫЙ ЭФФЕКТ НАВЕДЕНИЯ НА КАРТОЧКУ */
 .card:hover {
-    border-color: #00f2fe; /* Подсветка карточки при наведении */
-    transform: translateY(-5px);
+    border-color: #00f2fe; /* Синяя неоновая рамка */
+    transform: translateY(-8px) scale(1.02) !important; /* Карточка приподнимается и слегка увеличивается */
+    box-shadow: 0 10px 25px rgba(0, 242, 254, 0.25); /* Мягкое неоновое свечение вокруг карточки */
+    background-color: #1a1e26; /* Фон карточки становится чуть светлее */
 }
 
 .card h3 {
@@ -137,21 +133,25 @@ header nav a:hover {
     color: #94a3b8;
     font-size: 15px;
 }
-/* ФОН ДЛЯ МОДАЛЬНОГО ОКНА (ЗАТЕМНЕНИЕ) */
+/* ОБНОВЛЕННЫЕ СТИЛИ МОДАЛЬНОГО ОКНА С АНИМАЦИЕЙ */
 .modal {
-    display: none; /* Скрыто по умолчанию */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный */
-    z-index: 1000; /* Чтобы окно было поверх всего сайта */
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex; /* Всегда flex для центрирования */
     justify-content: center;
     align-items: center;
+    
+    /* НАЧАЛЬНОЕ СКРЫТОЕ СОСТОЯНИЕ */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-/* САМО ОКНО С КОНТЕНТОМ */
 .modal-content {
     background-color: #161920;
     padding: 40px;
@@ -161,6 +161,20 @@ header nav a:hover {
     width: 90%;
     position: relative;
     text-align: center;
+    
+    /* НАЧАЛЬНОЕ СОСТОЯНИЕ ФОРМЫ: уменьшена */
+    transform: scale(0.7);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Плавный эффект пружины */
+}
+
+/* СОСТОЯНИЕ КОГДА ОКНО ОТКРЫТО */
+.modal.modal-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal.modal-visible .modal-content {
+    transform: scale(1); /* Возвращаем к нормальному размеру */
 }
 
 /* КНОПКА ЗАКРЫТИЯ (КРЕСТИК) */
@@ -203,8 +217,27 @@ header nav a:hover {
     transition: border-color 0.3s;
 }
 
+/* БАЗОВЫЕ ПОЛЯ ВВОДА С ПЛАВНЫМ ПЕРЕХОДОМ */
+#repairForm input, #repairForm select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    background-color: #0d0f12;
+    border: 1px solid #232936;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    /* Плавное включение подсветки за 0.3 секунды */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* НЕОНОВОЕ СВЕЧЕНИЕ ПРИ НАЖАТИИ (ФОКУСЕ) */
 #repairForm input:focus, #repairForm select:focus {
-    border-color: #00f2fe; /* Подсветка поля при клике */
+    border-color: #00f2fe; /* Синий неоновый контур */
+    background-color: #11141a; /* Поле становится чуть светлее */
+    /* Эффект двойного свечения: внутреннее синее и внешнее фиолетовое */
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.2), 0 0 20px rgba(79, 172, 254, 0.1);
 }
 
 #repairForm button {
@@ -407,3 +440,84 @@ header nav a:hover {
 /* Очередь появления */
 .hero.hero-active p.hero-fade { transition-delay: 0.3s !important; }
 .hero.hero-active .cta-btn.hero-fade { transition-delay: 0.6s !important; }
+/* АНИМАЦИЯ ДЛЯ СТРОК ТАБЛИЦЫ */
+
+/* Начальное состояние: строка прозрачная */
+.price-table tbody tr {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Состояние после добавления класса видимости */
+.price-table tbody tr.row-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* БЛОК ПРЕИМУЩЕСТВ */
+#features {
+    padding: 80px 10%;
+    text-align: center;
+    background-color: #0d0f12;
+}
+
+#features h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background-color: #161920;
+    flex: 1;
+    min-width: 250px;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #232936;
+    transition: all 0.3s ease;
+}
+
+/* Эффект наведения на карточку преимущества */
+.feature-card:hover {
+    border-color: #4facfe;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(79, 172, 254, 0.15);
+}
+
+/* Стили неоновых геймерских иконок */
+.feature-icon {
+    font-size: 40px;
+    color: #00f2fe;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 242, 254, 0.5); /* Неоновое свечение иконки */
+}
+
+.feature-card h3 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 768px) {
+    .features-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .feature-card {
+        width: 100%;
+    }
+}

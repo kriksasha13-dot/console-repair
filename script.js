@@ -1,32 +1,32 @@
-// Находим нужные элементы на странице
+// ОБНОВЛЕННОЕ УПРАВЛЕНИЕ МОДАЛЬНЫМ ОКНОМ
 const modal = document.getElementById('orderModal');
 const openBtn = document.querySelector('.cta-btn');
 const closeBtn = document.querySelector('.close-btn');
 const form = document.getElementById('repairForm');
 
-// Открываем окно при клике на кнопку заявки
+// Открываем окно
 openBtn.addEventListener('click', function() {
-    modal.style.display = 'flex'; // Меняем display, чтобы окно появилось
+    modal.classList.add('modal-visible'); // Добавляем класс анимации
 });
 
 // Закрываем окно при клике на крестик
 closeBtn.addEventListener('click', function() {
-    modal.style.display = 'none'; // Скрываем окно
+    modal.classList.remove('modal-visible'); // Убираем класс
 });
 
-// Закрываем окно, если пользователь кликнул мимо окна (на темный фон)
+// Закрываем окно при клике на темный фон
 window.addEventListener('click', function(event) {
     if (event.target === modal) {
-        modal.style.display = 'none';
+        modal.classList.remove('modal-visible');
     }
 });
 
 // Обработка отправки формы
 form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Запрещаем странице перезагружаться
+    event.preventDefault();
     alert('Спасибо! Ваша заявка успешно отправлена. Мы скоро свяжемся с вами.');
-    modal.style.display = 'none'; // Закрываем окно после отправки
-    form.reset(); // Очищаем поля формы
+    modal.classList.remove('modal-visible'); // Закрываем с анимацией
+    form.reset();
 });
 // База данных с ценами для разных консолей
 const priceData = {
@@ -46,25 +46,30 @@ const priceData = {
         { name: "Восстановление после залития", time: "1-3 дня", price: "от 3 500 ₽" }
     ]
 };
-
-// Функция для отображения прайс-листа на экране
+// ОБНОВЛЕННАЯ ФУНКЦИЯ ОТОБРАЖЕНИЯ ПРАЙС-ЛИСТА С АНИМАЦИЕЙ
 function renderPrices(platform) {
     const tableBody = document.getElementById('priceLists');
     tableBody.innerHTML = ''; // Очищаем старые строки
 
     // Перебираем массив услуг для выбранной платформы
-    priceData[platform].forEach(item => {
-        const row = `
-            <tr>
-                <td>${item.name}</td>
-                <td>${item.time}</td>
-                <td>${item.price}</td>
-            </tr>
+    priceData[platform].forEach((item, index) => {
+        // Создаем элемент строки таблицы в памяти
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.time}</td>
+            <td>${item.price}</td>
         `;
-        tableBody.innerHTML += row; // Добавляем строку в таблицу
+        
+        // Добавляем строку в таблицу
+        tableBody.appendChild(row);
+
+        // Запускаем появление с маленькой задержкой для каждой строчки
+        setTimeout(() => {
+            row.classList.add('row-visible');
+        }, index * 100); // Первая строка через 0мс, вторая через 100мс, третья через 200мс
     });
 }
-
 // Навешиваем клики на кнопки-переключатели
 const tabButtons = document.querySelectorAll('.tab-btn');
 
@@ -106,4 +111,26 @@ window.addEventListener('DOMContentLoaded', function() {
     if (heroSection) {
         heroSection.classList.add('hero-active');
     }
+});
+javascript// ИДЕАЛЬНО ПЛАВНЫЙ СКРОЛЛ ДЛЯ МЕНЮ
+document.querySelectorAll('header nav a').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // Отменяем мгновенный резкий переход браузера
+
+        // Получаем id блока, к которому нужно прокрутить (например, #prices)
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+            // Вычисляем позицию блока на странице с учетом высоты шапки
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+            // Запускаем встроенный метод плавной прокрутки
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
 });
