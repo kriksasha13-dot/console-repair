@@ -21,12 +21,34 @@ window.addEventListener('click', function(event) {
     }
 });
 
-// Обработка отправки формы
+// НАДЕЖНАЯ ОТПРАВКА ФОРМЫ НА ПОЧТУ
 form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Спасибо! Ваша заявка успешно отправлена. Мы скоро свяжемся с вами.');
-    modal.classList.remove('modal-visible'); // Закрываем с анимацией
-    form.reset();
+    event.preventDefault(); // Останавливаем стандартную перезагрузку страницы
+
+    // Собираем все заполненные данные из формы
+    const data = new FormData(form);
+
+    // Отправляем данные на сервер Formspree
+    fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            // Если всё прошло успешно
+            alert('Спасибо! Ваша заявка успешно отправлена. Мы скоро свяжемся с вами.');
+            modal.classList.remove('modal-visible'); // Закрываем окно
+            form.reset(); // Очищаем поля
+        } else {
+            // Если произошла ошибка на сервере
+            alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+        }
+    }).catch(error => {
+        // Если вообще нет интернета
+        alert('Ошибка сети. Проверьте подключение к интернету.');
+    });
 });
 // База данных с ценами для разных консолей
 const priceData = {

@@ -91,6 +91,47 @@
                 </tbody>
             </table>
         </div>
+        <!-- Блок отзывов -->
+    <section id="reviews" class="anim-hidden">
+        <h2>Отзывы наших клиентов</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Приставка PS5 сильно шумела в тяжелых играх. Привез ребятам — почистили от пыли и заменили жидкий металл за час. Теперь работает идеально тихо, как новая!"</p>
+                <div class="review-author">- Алексей, владелец PS5</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Сдавала в ремонт геймпад от Xbox Series, залипал левый стик (дрифт). Поменяли механизм в тот же день, дали гарантию. Цена отличная, спасибо!"</p>
+                <div class="review-author">- Марина, играет на Xbox</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта (Контакты) -->
+    <footer id="contacts">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>SilverBox</h3>
+                <p><i class="fa-solid fa-location-dot"></i> г. Омск, ул. 10 лет октября, д. 166 (ост. 20 линия, 304 оф)</p>
+                <p><i class="fa-solid fa-phone"></i> +7 (999) 524-68-89</p>
+                <p><i class="fa-solid fa-clock"></i> Ежедневно с 12:00 до 18:00</p>
+            </div>
+            <!-- 100% рабочая ссылка строго на Яндекс Карты (без Дзена и Поиска) -->
+            <div class="footer-map">
+                <a href="https://yandex.ru/maps/66/omsk/house/ulitsa_10_let_oktyabrya_166/Y0oYcgVlS0YAQFtufXV5d31lZA==/?ll=73.426299%2C54.985784&z=17.6" target="_blank" class="map-link">
+                    <div class="map-placeholder">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Открыть интерактивную карту Яндекса</span>
+                        <p>Нажмите, чтобы проложить маршрут</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 SilverBox. Все права защищены.
+        </div>
+    </footer>
     </section>
 
 <!-- Модальное окно (изначально скрыто) -->
@@ -100,16 +141,21 @@
             <h2>Оставить заявку</h2>
             <p>Заполните форму, и мы свяжемся с вами в течение 10 минут</p>
             
-            <form id="repairForm">
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="tel" placeholder="Номер телефона" required>
-                <select required>
+            <form id="repairForm" action="https://formspree.io/f/xnjekpqy" method="POST">
+                <!-- Поле для имени -->
+                <input type="text" name="Имя клиента" placeholder="Ваше имя" required>
+                
+                <!-- Поле для телефона -->
+                <input type="tel" name="Телефон" placeholder="Номер телефона" required>
+                
+                <!-- Выбор приставки -->
+                <select name="Приставка" required>
                     <option value="" disabled selected>Выберите вашу приставку</option>
-                    <option value="ps5">PlayStation 5</option>
-                    <option value="ps4">PlayStation 4</option>
-                    <option value="xbox">Xbox Series X / S</option>
-                    <option value="nintendo">Nintendo Switch</option>
-                    <option value="other">Другая модель</option>
+                    <option value="PlayStation 5">PlayStation 5</option>
+                    <option value="PlayStation 4">PlayStation 4</option>
+                    <option value="Xbox Series X / S">Xbox Series X / S</option>
+                    <option value="Nintendo Switch">Nintendo Switch</option>
+                    <option value="Другая модель">Другая модель</option>
                 </select>
                 <button type="submit" class="cta-btn">Отправить</button>
             </form>
