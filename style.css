@@ -15,17 +15,44 @@ header {
     border-bottom: 2px solid #00f2fe; /* Неоновая линия снизу */
 }
 
-header .logo {
-    font-size: 24px;
+/* СТИЛИ ДЛЯ ЛОГОТИПА И НАЗВАНИЯ ВМЕСТЕ */
+.logo-link {
+    display: flex;
+    align-items: center; /* Выравнивает картинку и текст строго по одной линии по центру */
+    gap: 12px; /* Расстояние между картинкой и текстом */
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 60px; /* Аккуратная высота картинки, чтобы текст не терялся */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Стили для текста названия */
+.logo-text {
+    font-size: 22px;
     font-weight: 800;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Подсветка слова Master в логотипе */
-header .logo::shadow {
-    color: #feb600;
+/* Неоновая подсветка для слова Master */
+.logo-accent {
+    color: #cbec14cb;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+}
+
+/* Эффект при наведении на всю область логотипа */
+.logo-link:hover .logo-img {
+    transform: scale(1.05);
+}
+
+/* Эффект легкого увеличения при наведении мышки на логотип */
+.logo-link:hover .logo-img {
+    transform: scale(1.05);
 }
 
 header nav a {
