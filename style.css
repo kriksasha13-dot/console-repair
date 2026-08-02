@@ -745,30 +745,77 @@ footer {
         text-align: left !important;       /* Текст внутри карточки аккуратно равняется по левому краю */
     }
 
-    /* 5. ТАБЛИЦА ЦЕН И ВКЛАДКИ */
+   /* 5. ТАБЛИЦА ЦЕН И ВКЛАДКИ — ТЕПЕРЬ ИДЕАЛЬНО ВЛЕЗАЕТ */
     .tabs {
         flex-wrap: wrap;
         gap: 8px;
         margin-bottom: 20px;
+        width: 100%;
     }
 
     .tab-btn {
-        padding: 10px 15px;
+        padding: 10px 12px;
         font-size: 13px;
-        flex: 1; /* Кнопки платформ поделят экран поровну */
+        flex: 1; 
         min-width: 90px;
     }
 
-    /* Делаем таблицу прокручиваемой, если она не будет влезать по ширине */
+    /* Убираем контейнер таблицы, он больше не нужен для прокрутки */
     .price-table-container {
-        overflow-x: auto; 
+        border: none !important;
+        background: none !important;
+        width: 100% !important;
     }
 
-    .price-table th, .price-table td {
-        padding: 10px 12px;
+    /* СКРЫВАЕМ СТАНДАРТНУЮ ШАПКУ ТАБЛИЦЫ НА ТЕЛЕФОНЕ */
+    .price-table thead {
+        display: none !important;
+    }
+
+    /* ПРЕВРАЩАЕМ ТАБЛИЦУ В СТОЛБИК УДОБНЫХ КАРТОЧЕК */
+    .price-table, .price-table tbody, .price-table tr, .price-table td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Каждая строчка услуги теперь выглядит как отдельная аккуратная мини-карточка */
+    .price-table tr {
+        background-color: #161920;
+        border: 1px solid #232936 !important;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        padding: 15px !important;
+        text-align: left !important;
+    }
+
+    /* Оформляем название услуги */
+    .price-table td:nth-child(1) {
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        padding: 0 0 8px 0 !important;
+        border: none;
+    }
+
+    /* Оформляем срок ремонта */
+    .price-table td:nth-child(2) {
         font-size: 13px;
+        color: #94a3b8;
+        padding: 0 0 10px 0 !important;
+        border: none;
     }
 
+    /* Оформляем цену — делаем её крупной и заметной */
+    .price-table td:nth-child(3) {
+        font-size: 16px;
+        color: #00f2fe !important;
+        font-weight: bold;
+        padding: 8px 0 0 0 !important;
+        border-top: 1px solid #232936 !important; /* Отделяем цену полосой */
+        text-align: left !important;
+    }
+    
     /* 6. ПОДВАЛ САЙТА (FOOTER) */
     .footer-content {
         flex-direction: column !important;
