@@ -858,9 +858,14 @@ footer {
     }
 
     .footer-info p {
-        justify-content: center !important; /* Центрируем иконки вместе с текстом */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important; /* Центрируем иконку и текст строго вместе */
+        text-align: center !important;
+        gap: 10px !important; /* Фиксированный зазор между иконкой и текстом */
         font-size: 14px !important;
         margin-bottom: 12px !important;
+        width: 100% !important;
     }
 
     .footer-map {
