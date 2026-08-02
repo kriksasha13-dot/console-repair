@@ -849,8 +849,13 @@ footer {
     }
 
     .footer-info {
-        text-align: center !important; /* Текст контактов строго по центру */
+        text-align: center !important;
         width: 100% !important;
+        /* НАДЁЖНОЕ ОБНУЛЕНИЕ ОТСТУПОВ: убираем любые боковые сдвиги */
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .footer-info h3 {
