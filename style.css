@@ -726,16 +726,23 @@ footer {
         margin-bottom: 25px;
     }
 
-    /* 4. СЕТКИ (КАРТОЧКИ ПРЕИМУЩЕСТВ, УСЛУГ И ОТЗЫВОВ) */
+     /* 4. СЕТКИ (КАРТОЧКИ ПРЕИМУЩЕСТВ, УСЛУГ И ОТЗЫВОВ) - ИСПРАВЛЕНО */
     .features-grid, .services-grid, .reviews-grid {
-        flex-direction: column !important; /* Выстраиваем все карточки строго по одной в ряд */
-        gap: 15px !important;
+        display: flex !important;
+        flex-direction: column !important; /* Строго в один столбик */
+        align-items: center !important;    /* Центрируем карточки на экране */
+        gap: 20px !important;              /* Комфортный зазор между прямоугольниками */
+        width: 100% !important;
     }
 
     .feature-card, .card, .review-card {
         width: 100% !important;
+        max-width: 100% !important;
         min-width: 100% !important;
-        padding: 20px !important; /* Чуть уменьшаем внутренние отступы карточек */
+        box-sizing: border-box !important; /* Считает отступы внутрь карточки, чтобы текст не жал вбок */
+        padding: 25px 20px !important;     /* Одинаковые отступы: сверху/снизу 25px, слева/справа 20px */
+        margin: 0 !important;
+        text-align: left !important;       /* Текст внутри карточки аккуратно равняется по левому краю */
     }
 
     /* 5. ТАБЛИЦА ЦЕН И ВКЛАДКИ */
