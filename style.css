@@ -657,67 +657,136 @@ footer {
     padding-top: 20px;
 }
 
-/* Мобильная адаптивность для футера */
+/* ==========================================================================
+   ПОЛНАЯ МОБИЛЬНАЯ АДАПТИВНОСТЬ (ДЛЯ СМАРТФОНОВ И ПЛАНШЕТОВ)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        gap: 30px;
+    
+    /* Общие настройки: уменьшаем боковые отступы, чтобы текст не прилипал к краям */
+    header, #features, #services, #prices, #reviews, footer {
+        padding: 30px 20px !important;
     }
+
+    /* 1. ШАПКА САЙТА И ЛОГОТИП */
+    header {
+        flex-direction: column !important; /* Выстраиваем логотип и меню друг под другом */
+        gap: 15px;
+        text-align: center;
+    }
+
+    .logo-link {
+        justify-content: center; /* Центрируем логотип по центру экрана телефона */
+    }
+
+    .logo-img {
+        height: 35px; /* Делаем картинку логотипа чуть компактнее на смартфонах */
+    }
+
+    .logo-text {
+        font-size: 18px; /* Уменьшаем шрифт названия */
+    }
+
+    header nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; /* Если ссылки не влезут в одну строку, они аккуратно перенесутся */
+        gap: 15px;
+    }
+
+    header nav a {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    /* 2. ГЛАВНЫЙ БАННЕР (FIRST SCREEN) */
+    .hero {
+        padding: 50px 15px !important;
+    }
+
+    .hero h1 {
+        font-size: 26px !important; /* Уменьшаем огромный заголовок, чтобы он не переносился некрасиво */
+        line-height: 1.3;
+    }
+
+    .hero p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .cta-btn {
+        padding: 12px 28px;
+        font-size: 15px;
+        width: 100%; /* На смартфонах кнопка во всю ширину экрана выглядит удобнее для нажатия пальцем */
+        max-width: 300px;
+    }
+
+    /* 3. ЗАГОЛОВКИ СЕКЦИЙ */
+    #features h2, #services h2, #prices h2, #reviews h2 {
+        font-size: 24px !important;
+        margin-bottom: 25px;
+    }
+
+    /* 4. СЕТКИ (КАРТОЧКИ ПРЕИМУЩЕСТВ, УСЛУГ И ОТЗЫВОВ) */
+    .features-grid, .services-grid, .reviews-grid {
+        flex-direction: column !important; /* Выстраиваем все карточки строго по одной в ряд */
+        gap: 15px !important;
+    }
+
+    .feature-card, .card, .review-card {
+        width: 100% !important;
+        min-width: 100% !important;
+        padding: 20px !important; /* Чуть уменьшаем внутренние отступы карточек */
+    }
+
+    /* 5. ТАБЛИЦА ЦЕН И ВКЛАДКИ */
+    .tabs {
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .tab-btn {
+        padding: 10px 15px;
+        font-size: 13px;
+        flex: 1; /* Кнопки платформ поделят экран поровну */
+        min-width: 90px;
+    }
+
+    /* Делаем таблицу прокручиваемой, если она не будет влезать по ширине */
+    .price-table-container {
+        overflow-x: auto; 
+    }
+
+    .price-table th, .price-table td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    /* 6. ПОДВАЛ САЙТА (FOOTER) */
+    .footer-content {
+        flex-direction: column !important;
+        gap: 25px;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+
+    .footer-info p {
+        justify-content: center; /* Центрируем иконки контактов на телефоне */
+    }
+
     .footer-map {
+        width: 100% !important;
+    }
+
+    /* 7. ФОРМА ВСПЛЫВАЮЩЕГО ОКНА */
+    .modal-content {
+        padding: 25px 15px;
+        width: 95%; /* Чтобы окно не уходило за границы экрана телефона */
+    }
+    
+    #repairForm button {
         width: 100%;
     }
-}
-/* КРАСИВАЯ КАРТА-КНОПКА */
-.map-link {
-    text-decoration: none;
-    display: block;
-}
-
-.map-placeholder {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, #11141a 0%, #0d0f12 100%);
-    border: 1px solid #232936;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Эффект при наведении на карту */
-.map-placeholder:hover {
-    border-color: #00f2fe;
-    box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
-    background-color: #1a1e26;
-}
-
-/* Иконка карты */
-.map-placeholder i {
-    font-size: 40px;
-    color: #00f2fe;
-    text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.map-placeholder:hover i {
-    transform: scale(1.1) rotate(-5deg); /* Иконка забавно покачивается */
-}
-
-/* Текст на карте */
-.map-placeholder span {
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-}
-
-.map-placeholder p {
-    color: #475569 !important;
-    font-size: 13px !important;
-    margin: 0 !important;
 }
