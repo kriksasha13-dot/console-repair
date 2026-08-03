@@ -1,6 +1,7 @@
-/* ОБНУЛЕНИЕ СТИЛЕЙ И НАСТРОЙКА СКРОЛЛА */
+/* ==========================================================================
+   ОБНУЛЕНИЕ СТИЛЕЙ И НАСТРОЙКА СКРОЛЛА
+   ========================================================================== */
 html {
-    /* Убираем любое боковое движение страницы на корневом уровне */
     overflow-x: hidden; 
     width: 100%;
 }
@@ -12,42 +13,41 @@ html {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* ОБЩИЕ СТИЛИ ДЛЯ САЙТА */
+/* ОБЩИЕ СТИЛИ ДЛЯ САЙТА (ЧЕРНЫЙ ФОН И БЕЛЫЙ ТЕКСТ) */
 body {
-    background-color: #0d0f12;
-    color: #e2e8f0;
+    background-color: #0a0a0a; /* Глубокий черный */
+    color: #ffffff; /* Белый текст */
     line-height: 1.6;
-    /* Полный запрет на горизонтальный скролл (страница больше не будет двигаться пальцем влево-вправо) */
     overflow-x: hidden;
     width: 100%;
 }
 
-/* ШАПКА САЙТА (HEADER) */
+/* ==========================================================================
+   ШАПКА САЙТА (HEADER)
+   ========================================================================== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    background-color: #161920;
-    border-bottom: 2px solid #00f2fe; /* Неоновая линия снизу */
+    background-color: #141414; /* Темно-серый блок */
+    border-bottom: 2px solid #ff6b00; /* Оранжевая неоновая линия */
 }
 
-/* СТИЛИ ДЛЯ ЛОГОТИПА И НАЗВАНИЯ ВМЕСТЕ */
 .logo-link {
     display: flex;
-    align-items: center; /* Выравнивает картинку и текст строго по одной линии по центру */
-    gap: 12px; /* Расстояние между картинкой и текстом */
+    align-items: center; 
+    gap: 12px; 
     text-decoration: none;
 }
 
 .logo-img {
-    height: 60px; /* Аккуратная высота картинки, чтобы текст не терялся */
+    height: 40px; 
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-/* Стили для текста названия */
 .logo-text {
     font-size: 22px;
     font-weight: 800;
@@ -56,24 +56,18 @@ header {
     letter-spacing: 1px;
 }
 
-/* Неоновая подсветка для слова Master */
+/* Оранжевая подсветка для слова Box */
 .logo-accent {
-    color: #cbec14cb;
-    text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+    color: #ff6b00;
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.4);
 }
 
-/* Эффект при наведении на всю область логотипа */
-.logo-link:hover .logo-img {
-    transform: scale(1.05);
-}
-
-/* Эффект легкого увеличения при наведении мышки на логотип */
 .logo-link:hover .logo-img {
     transform: scale(1.05);
 }
 
 header nav a {
-    color: #94a3b8;
+    color: #a3a3a3; /* Бело-серый текст */
     text-decoration: none;
     margin-left: 20px;
     font-weight: 600;
@@ -81,226 +75,126 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #3204ea; /* Синее свечение при наведении */
+    color: #ff6b00; /* Оранжевое свечение при наведении */
 }
 
-/* ГЛАВНЫЙ БАННЕР (HERO SECTION) */
+/* ==========================================================================
+   ГЛАВНЫЙ БАННЕР (HERO SECTION)
+   ========================================================================== */
 .hero {
     text-align: center;
     padding: 100px 20px;
-    background: linear-gradient(135px, #161920 0%, #0d0f12 100%);
-    border-bottom: 1px solid #232936;
+    background: linear-gradient(135px, #141414 0%, #0a0a0a 100%);
+    border-bottom: 1px solid #222222;
 }
 
 .hero h1 {
     font-size: 42px;
     color: #fff;
     margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+    text-shadow: 0 0 15px rgba(255, 107, 0, 0.25);
 }
 
 .hero p {
     font-size: 18px;
-    color: #94a3b8;
+    color: #a3a3a3;
     max-width: 600px;
     margin: 0 auto 30px auto;
 }
 
-/* КНОПКА ЗАЯВКИ */
+/* КНОПКА ЗАЯВКИ (ОРАНЖЕВЫЙ ГРАДИЕНТ) */
 .cta-btn {
-    background: linear-gradient(90px, #00f2fe, #4facfe); /* Неоновый градиент */
-    color: #f20303;
+    background: linear-gradient(90deg, #ff6b00, #ff8c3a); 
+    color: #fff;
     border: none;
     padding: 15px 35px;
     font-size: 16px;
     font-weight: bold;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.35);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .cta-btn:hover {
-    transform: translateY(-3px); /* Кнопка слегка приподнимается */
-    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.6);
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.55);
+    background: linear-gradient(90deg, #e05e00, #ff7b1a);
 }
 
-/* БЛОК С УСЛУГАМИ (SERVICES) */
-#services {
+/* ==========================================================================
+   БЛОК С ПРЕИМУЩЕСТВАМИ И УСЛУГАМИ
+   ========================================================================== */
+#features, #services {
     padding: 80px 10%;
     text-align: center;
+    background-color: #0a0a0a;
 }
 
-#services h2 {
+#features h2, #services h2 {
     font-size: 32px;
     margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
+    color: #fff;
 }
 
-/* Сетка для карточек */
-.services-grid {
+.features-grid, .services-grid {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap; /* Чтобы на смартфонах карточки переносились */
+    flex-wrap: wrap; 
 }
 
-/* СТИЛЬ КАРТОЧКИ УСЛУГИ */
-.card {
-    background-color: #161920;
+/* СТИЛЬ КАРТОЧЕК */
+.feature-card, .card {
+    background-color: #141414;
     flex: 1;
     min-width: 250px;
     padding: 30px;
     border-radius: 12px;
-    border: 1px solid #232936;
+    border: 1px solid #222222;
     text-align: left;
-    /* Плавность изменений для всех свойств (transform, box-shadow, background) за 0.3 секунды */
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
 }
 
-/* УЛУЧШЕННЫЙ ЭФФЕКТ НАВЕДЕНИЯ НА КАРТОЧКУ */
-.card:hover {
-    border-color: #00f2fe; /* Синяя неоновая рамка */
-    transform: translateY(-8px) scale(1.02) !important; /* Карточка приподнимается и слегка увеличивается */
-    box-shadow: 0 10px 25px rgba(0, 242, 254, 0.25); /* Мягкое неоновое свечение вокруг карточки */
-    background-color: #1a1e26; /* Фон карточки становится чуть светлее */
+.feature-card:hover, .card:hover {
+    border-color: #ff6b00; /* Оранжевая рамка */
+    transform: translateY(-8px) scale(1.02) !important; 
+    box-shadow: 0 10px 25px rgba(255, 107, 0, 0.2); 
+    background-color: #1a1a1a; 
 }
 
-.card h3 {
+.feature-icon {
+    font-size: 40px;
+    color: #ff6b00;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 107, 0, 0.4); 
+}
+
+.feature-card h3, .card h3 {
     color: #fff;
     margin-bottom: 15px;
     font-size: 20px;
 }
 
-.card p {
-    color: #94a3b8;
+.feature-card p, .card p {
+    color: #a3a3a3;
     font-size: 15px;
 }
-/* ОБНОВЛЕННЫЕ СТИЛИ МОДАЛЬНОГО ОКНА С АНИМАЦИЕЙ */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    display: flex; /* Всегда flex для центрирования */
-    justify-content: center;
-    align-items: center;
-    
-    /* НАЧАЛЬНОЕ СКРЫТОЕ СОСТОЯНИЕ */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-}
 
-.modal-content {
-    background-color: #161920;
-    padding: 40px;
-    border-radius: 16px;
-    border: 2px solid #00f2fe;
-    max-width: 450px;
-    width: 90%;
-    position: relative;
-    text-align: center;
-    
-    /* НАЧАЛЬНОЕ СОСТОЯНИЕ ФОРМЫ: уменьшена */
-    transform: scale(0.7);
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Плавный эффект пружины */
-}
-
-/* СОСТОЯНИЕ КОГДА ОКНО ОТКРЫТО */
-.modal.modal-visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal.modal-visible .modal-content {
-    transform: scale(1); /* Возвращаем к нормальному размеру */
-}
-
-/* КНОПКА ЗАКРЫТИЯ (КРЕСТИК) */
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    color: #94a3b8;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.close-btn:hover {
-    color: #ff4757; /* Краснеет при наведении */
-}
-
-.modal-content h2 {
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.modal-content p {
-    color: #94a3b8;
-    margin-bottom: 25px;
-    font-size: 14px;
-}
-
-/* СТИЛИ ДЛЯ ИНПУТОВ И ПОЛЕЙ ВВОДА */
-#repairForm input, #repairForm select {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    background-color: #0d0f12;
-    border: 1px solid #232936;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-/* БАЗОВЫЕ ПОЛЯ ВВОДА С ПЛАВНЫМ ПЕРЕХОДОМ */
-#repairForm input, #repairForm select {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    background-color: #0d0f12;
-    border: 1px solid #232936;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 15px;
-    outline: none;
-    /* Плавное включение подсветки за 0.3 секунды */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-/* НЕОНОВОЕ СВЕЧЕНИЕ ПРИ НАЖАТИИ (ФОКУСЕ) */
-#repairForm input:focus, #repairForm select:focus {
-    border-color: #00f2fe; /* Синий неоновый контур */
-    background-color: #11141a; /* Поле становится чуть светлее */
-    /* Эффект двойного свечения: внутреннее синее и внешнее фиолетовое */
-    box-shadow: 0 0 10px rgba(0, 242, 254, 0.2), 0 0 20px rgba(79, 172, 254, 0.1);
-}
-
-#repairForm button {
-    width: 100%;
-    margin-top: 10px;
-}
-/* БЛОК ЦЕН */
+/* ==========================================================================
+   БЛОК ЦЕН И ТАБЛИЦА
+   ========================================================================== */
 #prices {
     padding: 80px 10%;
     text-align: center;
-    background-color: #11141a;
+    background-color: #141414;
 }
 
 .section-subtitle {
-    color: #94a3b8;
+    color: #a3a3a3;
     margin-bottom: 30px;
 }
 
-/* КНОПКИ ПЕРЕКЛЮЧЕНИЯ В КЛАДОК */
 .tabs {
     display: flex;
     justify-content: center;
@@ -309,9 +203,9 @@ header nav a:hover {
 }
 
 .tab-btn {
-    background-color: #161920;
-    color: #94a3b8;
-    border: 1px solid #232936;
+    background-color: #0a0a0a;
+    color: #a3a3a3;
+    border: 1px solid #222222;
     padding: 12px 30px;
     font-size: 16px;
     font-weight: 600;
@@ -322,23 +216,22 @@ header nav a:hover {
 
 .tab-btn:hover {
     color: #fff;
-    border-color: #00f2fe;
+    border-color: #ff6b00;
 }
 
 .tab-btn.active {
-    background: linear-gradient(90deg, #00f2fe, #4facfe);
+    background: linear-gradient(90deg, #ff6b00, #ff8c3a);
     color: #fff;
     border: none;
-    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
 }
 
-/* ТАБЛИЦА ЦЕН */
 .price-table-container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #161920;
+    background-color: #0a0a0a;
     border-radius: 12px;
-    border: 1px solid #232936;
+    border: 1px solid #222222;
     overflow: hidden;
 }
 
@@ -348,19 +241,20 @@ header nav a:hover {
     text-align: left;
 }
 
-.price-table th, .price-table td {
+.price-table th {
+    background-color: #141414;
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #222222;
     padding: 18px 25px;
 }
 
-.price-table th {
-    background-color: #1a1e27;
-    color: #fff;
-    font-weight: 600;
-    border-bottom: 2px solid #232936;
+.price-table td {
+    padding: 18px 25px;
 }
 
 .price-table tr {
-    border-bottom: 1px solid #232936;
+    border-bottom: 1px solid #222222;
     transition: background-color 0.2s;
 }
 
@@ -369,207 +263,21 @@ header nav a:hover {
 }
 
 .price-table tr:hover {
-    background-color: #1c212b;
+    background-color: #141414;
 }
 
 .price-table td:last-child {
-    color: #00f2fe;
+    color: #ff6b00;
     font-weight: bold;
 }
-/* МЕДИА-ЗАПРОС ДЛЯ СМАРТФОНОВ И ПЛАНШЕТОВ */
-@media (max-width: 768px) {
-    /* Уменьшаем отступы по бокам для всего сайта */
-    header, #services, #prices {
-        padding: 40px 5%;
-    }
 
-    /* Перестраиваем шапку сайта вертикально */
-    header {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-        padding: 20px 5%;
-    }
-
-    header nav {
-        display: flex;
-        gap: 10px;
-    }
-
-    header nav a {
-        margin-left: 0;
-        font-size: 14px;
-    }
-
-    /* Уменьшаем размеры главного баннера */
-    .hero {
-        padding: 60px 15px;
-    }
-
-    .hero h1 {
-        font-size: 28px; /* Уменьшаем шрифт заголовка, чтобы он влезал на экран */
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    /* Карточки услуг теперь будут растягиваться на всю ширину экрана по одной */
-    .services-grid {
-        flex-direction: column;
-    }
-
-    .card {
-        width: 100%;
-    }
-
-    /* Сжимаем кнопки переключения прайс-листа */
-    .tabs {
-        flex-wrap: wrap; /* Если не влезут в ряд — перенесутся */
-        gap: 8px;
-    }
-
-    .tab-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-        flex: 1; /* Кнопки поделят пространство поровну */
-        min-width: 100px;
-    }
-
-    /* Настраиваем таблицу для мобильных */
-    .price-table th, .price-table td {
-        padding: 12px 15px;
-        font-size: 14px;
-    }
-
-    /* Делаем модальное окно чуть компактнее */
-    .modal-content {
-        padding: 30px 20px;
-    }
-}
-/* КЛАССЫ ДЛЯ АНИМАЦИИ ПРИ СКРОЛЛЕ */
-
-/* Начальное состояние: элемент скрыт и опущен на 50px вниз */
-.anim-hidden {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out; /* Плавность анимации — 0.8 секунды */
-}
-
-/* Состояние после появления: элемент становится видимым и возвращается на место */
-.anim-show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Добавим небольшую задержку для карточек, чтобы они появлялись по очереди */
-.services-grid .card:nth-child(1) { transition-delay: 0s; }
-.services-grid .card:nth-child(2) { transition-delay: 0.2s; }
-.services-grid .card:nth-child(3) { transition-delay: 0.4s; }
-/* АНИМАЦИЯ ДЛЯ ПЕРВОГО ЭКРАНА (ИСПРАВЛЕННАЯ) */
-
-/* Изначально скрываем элементы с классом hero-fade */
-.hero .hero-fade {
-    opacity: 0 !important; /* !important гарантирует, что старые стили не перебьют это правило */
-    transform: scale(0.95) translateY(10px) !important;
-    transition: opacity 0.8s ease, transform 0.8s ease !important;
-}
-
-/* Когда добавляется класс hero-active, элементы плавно проявляются */
-.hero.hero-active .hero-fade {
-    opacity: 1 !important;
-    transform: scale(1) translateY(0) !important;
-}
-
-/* Очередь появления */
-.hero.hero-active p.hero-fade { transition-delay: 0.3s !important; }
-.hero.hero-active .cta-btn.hero-fade { transition-delay: 0.6s !important; }
-/* АНИМАЦИЯ ДЛЯ СТРОК ТАБЛИЦЫ */
-
-/* Начальное состояние: строка прозрачная */
-.price-table tbody tr {
-    opacity: 0;
-    transform: translateY(5px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-/* Состояние после добавления класса видимости */
-.price-table tbody tr.row-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-/* БЛОК ПРЕИМУЩЕСТВ */
-#features {
-    padding: 80px 10%;
-    text-align: center;
-    background-color: #0d0f12;
-}
-
-#features h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
-    color: #fff;
-}
-
-.features-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.feature-card {
-    background-color: #161920;
-    flex: 1;
-    min-width: 250px;
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #232936;
-    transition: all 0.3s ease;
-}
-
-/* Эффект наведения на карточку преимущества */
-.feature-card:hover {
-    border-color: #4facfe;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(79, 172, 254, 0.15);
-}
-
-/* Стили неоновых геймерских иконок */
-.feature-icon {
-    font-size: 40px;
-    color: #00f2fe;
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(0, 242, 254, 0.5); /* Неоновое свечение иконки */
-}
-
-.feature-card h3 {
-    color: #fff;
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.feature-card p {
-    color: #94a3b8;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* Адаптивность для мобильных телефонов */
-@media (max-width: 768px) {
-    .features-grid {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .feature-card {
-        width: 100%;
-    }
-}
-/* БЛОК ОТЗЫВОВ */
+/* ==========================================================================
+   БЛОК ОТЗЫВОВ
+   ========================================================================== */
 #reviews {
     padding: 80px 10%;
     text-align: center;
-    background-color: #0d0f12;
+    background-color: #0a0a0a;
 }
 
 #reviews h2 {
@@ -586,27 +294,24 @@ header nav a:hover {
 }
 
 .review-card {
-    background-color: #161920;
-    border: 1px solid #232936;
+    background-color: #141414;
+    border: 1px solid #222222;
     border-radius: 12px;
     padding: 30px;
     max-width: 450px;
     flex: 1;
     min-width: 280px;
     text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .review-stars {
-    color: #f1c40f;
+    color: #ff6b00; 
     margin-bottom: 15px;
     font-size: 18px;
 }
 
 .review-text {
-    color: #94a3b8;
+    color: #a3a3a3;
     font-style: italic;
     font-size: 15px;
     margin-bottom: 20px;
@@ -614,15 +319,17 @@ header nav a:hover {
 }
 
 .review-author {
-    color: #00f2fe;
+    color: #ff6b00;
     font-weight: 600;
     font-size: 14px;
 }
 
-/* ПОДВАЛ САЙТА (FOOTER) */
+/* ==========================================================================
+   ПОДВАЛ САЙТА (FOOTER) И КАРТА
+   ========================================================================== */
 footer {
-    background-color: #161920;
-    border-top: 2px solid #00f2fe;
+    background-color: #141414;
+    border-top: 2px solid #ff6b00;
     padding: 60px 10% 20px 10%;
 }
 
@@ -634,11 +341,6 @@ footer {
     margin-bottom: 40px;
 }
 
-.footer-info {
-    flex: 1;
-    min-width: 250px;
-}
-
 .footer-info h3 {
     color: #fff;
     font-size: 24px;
@@ -648,7 +350,7 @@ footer {
 }
 
 .footer-info p {
-    color: #94a3b8;
+    color: #a3a3a3;
     margin-bottom: 15px;
     font-size: 15px;
     display: flex;
@@ -657,98 +359,212 @@ footer {
 }
 
 .footer-info i {
-    color: #00f2fe;
-    font-size: 16px;
-}
-
-.footer-map {
-    flex: 1;
-    min-width: 300px;
+    color: #ff6b00;
 }
 
 .footer-bottom {
     text-align: center;
-    color: #475569;
+    color: #555555;
     font-size: 13px;
-    border-top: 1px solid #232936;
+    border-top: 1px solid #222222;
     padding-top: 20px;
 }
 
+.map-link {
+    text-decoration: none;
+    display: block;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #141414 100%);
+    border: 1px solid #222222;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.map-placeholder:hover {
+    border-color: #ff6b00;
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.15);
+    background-color: #1a1a1a;
+}
+
+.map-placeholder i {
+    font-size: 40px;
+    color: #ff6b00;
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.map-placeholder:hover i {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.map-placeholder span {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+}
+
 /* ==========================================================================
-   ПОЛНАЯ МОБИЛЬНАЯ АДАПТИВНОСТЬ (ДЛЯ СМАРТФОНОВ И ПЛАНШЕТОВ)
+   МОДАЛЬНОЕ ОКНО ЗАЯВКИ
+   ========================================================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal-content {
+    background-color: #141414;
+    padding: 40px;
+    border-radius: 16px;
+    border: 2px solid #ff6b00;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    transform: scale(0.7);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #a3a3a3;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff4757;
+}
+
+#repairForm input, #repairForm select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    background-color: #0a0a0a;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+#repairForm input:focus, #repairForm select:focus {
+    border-color: #ff6b00;
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.25);
+}
+
+/* ==========================================================================
+   КЛАССЫ ДЛЯ АНИМАЦИЙ
+   /* ==========================================================================
+   КЛАССЫ ДЛЯ АНИМАЦИЙ (СКРОЛЛ / ЗАГРУЗКА)
+   ========================================================================== */
+.anim-hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s ease-out;
+}
+
+.anim-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.services-grid .card:nth-child(1), .features-grid .feature-card:nth-child(1) { transition-delay: 0s; }
+.services-grid .card:nth-child(2), .features-grid .feature-card:nth-child(2) { transition-delay: 0.15s; }
+.services-grid .card:nth-child(3), .features-grid .feature-card:nth-child(3) { transition-delay: 0.3s; }
+
+.hero .hero-fade {
+    opacity: 0 !important;
+    transform: scale(0.97) translateY(10px) !important;
+    transition: opacity 0.8s ease, transform 0.8s ease !important;
+}
+
+.hero.hero-active .hero-fade {
+    opacity: 1 !important;
+    transform: scale(1) translateY(0) !important;
+}
+
+.hero.hero-active p.hero-fade { transition-delay: 0.25s !important; }
+.hero.hero-active .cta-btn.hero-fade { transition-delay: 0.5s !important; }
+
+.price-table tbody tr {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.price-table tbody tr.row-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   ПОЛНАЯ МОБИЛЬНАЯ АДАПТИВНОСТЬ
    ========================================================================== */
 @media (max-width: 768px) {
-    
-    /* Общие настройки: уменьшаем боковые отступы, чтобы текст не прилипал к краям */
-    header, #features, #services, #prices, #reviews, footer {
+    header, #features, #services, #calculator, #prices, #reviews, footer {
         padding: 30px 20px !important;
     }
 
-    /* 1. ШАПКА САЙТА И ЛОГОТИП */
     header {
-        flex-direction: column !important; /* Выстраиваем логотип и меню друг под другом */
+        flex-direction: column !important;
         gap: 15px;
         text-align: center;
     }
 
-    .logo-link {
-        justify-content: center; /* Центрируем логотип по центру экрана телефона */
-    }
-
-    .logo-img {
-        height: 35px; /* Делаем картинку логотипа чуть компактнее на смартфонах */
-    }
-
-    .logo-text {
-        font-size: 18px; /* Уменьшаем шрифт названия */
-    }
+    .logo-link { justify-content: center !important; }
+    .logo-img { height: 35px; }
+    .logo-text { font-size: 18px; }
 
     header nav {
         display: flex;
         justify-content: center;
-        flex-wrap: wrap; /* Если ссылки не влезут в одну строку, они аккуратно перенесутся */
+        flex-wrap: wrap;
         gap: 15px;
     }
 
-    header nav a {
-        margin: 0;
-        font-size: 14px;
-    }
+    header nav a { margin: 0; font-size: 14px; }
 
-    /* 2. ГЛАВНЫЙ БАННЕР (FIRST SCREEN) */
-    .hero {
-        padding: 50px 15px !important;
-    }
+    .hero { padding: 50px 15px !important; }
+    .hero h1 { font-size: 26px !important; line-height: 1.3; }
+    .hero p { font-size: 14px; margin-bottom: 25px; }
+    .cta-btn { width: 100%; max-width: 300px; }
 
-    .hero h1 {
-        font-size: 26px !important; /* Уменьшаем огромный заголовок, чтобы он не переносился некрасиво */
-        line-height: 1.3;
-    }
-
-    .hero p {
-        font-size: 14px;
-        margin-bottom: 25px;
-    }
-
-    .cta-btn {
-        padding: 12px 28px;
-        font-size: 15px;
-        width: 100%; /* На смартфонах кнопка во всю ширину экрана выглядит удобнее для нажатия пальцем */
-        max-width: 300px;
-    }
-
-    /* 3. ЗАГОЛОВКИ СЕКЦИЙ */
-    #features h2, #services h2, #prices h2, #reviews h2 {
+    #features h2, #services h2, #calculator h2, #prices h2, #reviews h2 {
         font-size: 24px !important;
         margin-bottom: 25px;
     }
 
-     /* 4. СЕТКИ (КАРТОЧКИ ПРЕИМУЩЕСТВ, УСЛУГ И ОТЗЫВОВ) - ИСПРАВЛЕНО */
     .features-grid, .services-grid, .reviews-grid {
         display: flex !important;
-        flex-direction: column !important; /* Строго в один столбик */
-        align-items: center !important;    /* Центрируем карточки на экране */
-        gap: 20px !important;              /* Комфортный зазор между прямоугольниками */
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
         width: 100% !important;
     }
 
@@ -756,139 +572,75 @@ footer {
         width: 100% !important;
         max-width: 100% !important;
         min-width: 100% !important;
-        box-sizing: border-box !important; /* Считает отступы внутрь карточки, чтобы текст не жал вбок */
-        padding: 25px 20px !important;     /* Одинаковые отступы: сверху/снизу 25px, слева/справа 20px */
+        padding: 25px 20px !important;
         margin: 0 !important;
-        text-align: left !important;       /* Текст внутри карточки аккуратно равняется по левому краю */
+        text-align: left !important;
     }
 
-   /* 5. ТАБЛИЦА ЦЕН И ВКЛАДКИ — ТЕПЕРЬ ИДЕАЛЬНО ВЛЕЗАЕТ */
-    .tabs {
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 20px;
-        width: 100%;
+    /* АДАПТИВНОСТЬ КАЛЬКУЛЯТОРА НА ТЕЛЕФОНЕ */
+    .calc-container {
+        padding: 20px !important;
     }
 
-    .tab-btn {
-        padding: 10px 12px;
-        font-size: 13px;
-        flex: 1; 
-        min-width: 90px;
+    #calcForm {
+        flex-direction: column !important;
+        gap: 20px !important;
     }
 
-    /* Убираем контейнер таблицы, он больше не нужен для прокрутки */
-    .price-table-container {
-        border: none !important;
-        background: none !important;
+    .calc-options, .calc-total-box {
         width: 100% !important;
+        min-width: 100% !important;
     }
 
-    /* СКРЫВАЕМ СТАНДАРТНУЮ ШАПКУ ТАБЛИЦЫ НА ТЕЛЕФОНЕ */
-    .price-table thead {
-        display: none !important;
+    .calc-label {
+        padding: 12px 15px !important;
     }
 
-    /* ПРЕВРАЩАЕМ ТАБЛИЦУ В СТОЛБИК УДОБНЫХ КАРТОЧЕК */
-    .price-table, .price-table tbody, .price-table tr, .price-table td {
-        display: block !important;
-        width: 100% !important;
-        box-sizing: border-box;
+    .calc-text, .calc-price {
+        font-size: 14px !important;
     }
 
-    /* Каждая строчка услуги теперь выглядит как отдельная аккуратная мини-карточка */
+    .total-price {
+        font-size: 30px !important;
+    }
+
+    /* ВКЛАДКИ ЦЕН */
+    .tabs { flex-wrap: wrap; gap: 8px; margin-bottom: 20px; width: 100%; }
+    .tab-btn { padding: 10px 12px; font-size: 13px; flex: 1; min-width: 90px; }
+
+    /* ПЕРЕСТРОЕНИЕ ТАБЛИЦЫ В КРУПНЫЕ ВЕРТИКАЛЬНЫЕ БЛОКИ-КАРТОЧКИ */
+    .price-table-container { border: none !important; background: none !important; width: 100% !important; }
+    .price-table thead { display: none !important; }
+    .price-table, .price-table tbody, .price-table tr, .price-table td { display: block !important; width: 100% !important; }
+
     .price-table tr {
-        background-color: #161920;
-        border: 1px solid #232936 !important;
-        border-radius: 10px;
-        margin-bottom: 12px;
+        background-color: #141414 !important;
+        border: 1px solid #222222 !important;
+        border-radius: 10px !important;
+        margin-bottom: 12px !important;
         padding: 15px !important;
-        text-align: left !important;
     }
 
-    /* Оформляем название услуги */
-    .price-table td:nth-child(1) {
-        font-size: 15px;
-        font-weight: 600;
-        color: #fff;
-        padding: 0 0 8px 0 !important;
-        border: none;
-    }
+    .price-table td:nth-child(1) { font-size: 15px !important; font-weight: 600 !important; color: #fff !important; padding: 0 0 8px 0 !important; border: none !important; }
+    .price-table td:nth-child(2) { font-size: 13px !important; color: #a3a3a3 !important; padding: 0 0 10px 0 !important; border: none !important; }
+    .price-table td:nth-child(3) { font-size: 16px !important; color: #ff6b00 !important; font-weight: bold !important; padding: 8px 0 0 0 !important; border-top: 1px solid #222222 !important; }
 
-    /* Оформляем срок ремонта */
-    .price-table td:nth-child(2) {
-        font-size: 13px;
-        color: #94a3b8;
-        padding: 0 0 10px 0 !important;
-        border: none;
-    }
-
-    /* Оформляем цену — делаем её крупной и заметной */
-    .price-table td:nth-child(3) {
-        font-size: 16px;
-        color: #00f2fe !important;
-        font-weight: bold;
-        padding: 8px 0 0 0 !important;
-        border-top: 1px solid #232936 !important; /* Отделяем цену полосой */
-        text-align: left !important;
-    }
-
-    /* 6. ПОДВАЛ САЙТА (FOOTER) — ПОЛНОСТЬЮ ВЫРОВНЕНО И ИСПРАВЛЕНО */
-    footer {
-        padding: 40px 20px 20px 20px !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .footer-content {
-        display: flex !important;
-        flex-direction: column !important; /* Выстраиваем контакты и карту в один столбик */
-        align-items: center !important;    /* Центрируем содержимое */
-        gap: 30px !important;
-        width: 100% !important;
-    }
-
+    /* ПОДВАЛ */
+    .footer-content { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 25px !important; width: 100% !important; }
+    
     .footer-info {
         text-align: center !important;
         width: 100% !important;
-        /* НАДЁЖНОЕ ОБНУЛЕНИЕ ОТСТУПОВ: убираем любые боковые сдвиги */
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-
-    .footer-info h3 {
-        margin-bottom: 15px !important;
+        padding-left: 0 !important; padding-right: 0 !important;
+        margin-left: 0 !important; margin-right: 0 !important;
     }
 
     .footer-info p {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important; /* Центрируем иконку и текст строго вместе */
-        text-align: center !important;
-        gap: 10px !important; /* Фиксированный зазор между иконкой и текстом */
-        font-size: 14px !important;
-        margin-bottom: 12px !important;
-        width: 100% !important;
+        display: flex !important; align-items: center !important; justify-content: center !important;
+        text-align: center !important; gap: 10px !important; font-size: 14px !important; margin-bottom: 12px !important;
     }
 
-    .footer-map {
-        width: 100% !important; /* Карта-кнопка займет ровно ширину экрана телефона */
-        max-width: 100% !important;
-        min-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .map-placeholder {
-        width: 100% !important;
-        height: 160px !important; /* Делаем блок чуть компактнее для телефонов */
-        padding: 15px !important;
-    }
-
-    .footer-bottom {
-        width: 100% !important;
-        margin-top: 20px !important;
-        padding-top: 15px !important;
-        text-align: center !important;
-    }
+    .footer-map { width: 100% !important; max-width: 100% !important; }
+    .map-placeholder { height: 160px !important; }
+    .modal-content { padding: 25px 15px; width: 95%; }
+}
