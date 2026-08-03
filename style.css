@@ -30,8 +30,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    background-color: #141414; /* Темно-серый блок */
-    border-bottom: 2px solid #ff6b00; /* Оранжевая неоновая линия */
+    background-color: #000000; /* Перекрасили шапку в идеально черный цвет */
+    border-bottom: 2px solid #ff6b00;
 }
 
 .logo-link {
