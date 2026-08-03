@@ -22,35 +22,6 @@ body {
     width: 100%;
 }
 
-/* ==========================================================================
-   ГАРАНТИРОВАННЫЕ КНОПКИ МЕССЕНДЖЕРОВ (ПОВЕРХ ВСЕГО САЙТА)
-   ========================================================================== */
-.messenger-buttons {
-    position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 15px !important;
-    z-index: 999999 !important; /* Максимальный слой, который пробьет любую графику */
-}
-
-.msg-btn {
-    width: 60px !important; /* Немного увеличим для удобства */
-    height: 60px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    flex-direction: column !important; /* Картинка сверху, текст снизу */
-    justify-content: center !important;
-    align-items: center !important;
-    color: #ffffff !important;
-    font-size: 20px !important; /* Чуть уменьшим размер иконки */
-    text-decoration: none !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease !important;
-    cursor: pointer !important;
-}
-
 /* Стили для букв VK и TG под иконками */
 .btn-msg-text {
     font-size: 10px !important;
@@ -638,6 +609,49 @@ footer {
 }
 
 /* ==========================================================================
+   КНОПКИ МЕССЕНДЖЕРОВ В ПОДВАЛЕ (ИСПРАВЛЕНО ДЛЯ ПК)
+   ========================================================================== */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    width: max-content; /* Кнопки занимают ровно столько места, сколько им нужно, и не липнут к карте */
+    justify-content: flex-start; /* На ПК выравниваем аккуратно по левому краю к тексту */
+}
+
+.social-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid #222222;
+    white-space: nowrap; /* Запрещаем тексту внутри кнопок переноситься на новую строку */
+}
+
+/* Кнопка VK */
+.vk-social {
+    background-color: #0077ff;
+}
+.vk-social:hover {
+    background-color: #0066dd;
+    box-shadow: 0 0 15px rgba(0, 119, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Кнопка Telegram */
+.tg-social {
+    background-color: #229ed9;
+}
+.tg-social:hover {
+    background-color: #1e8cb1;
+    box-shadow: 0 0 15px rgba(34, 158, 217, 0.4);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
    ПОЛНАЯ МОБИЛЬНАЯ АДАПТИВНОСТЬ
    ========================================================================== */
 @media (max-width: 768px) {
@@ -733,6 +747,17 @@ footer {
     .footer-info p {
         display: flex !important; align-items: center !important; justify-content: center !important;
         text-align: center !important; gap: 10px !important; font-size: 14px !important; margin-bottom: 12px !important;
+    }
+    .footer-socials {
+        justify-content: center !important; /* На телефонах кнопки встанут строго по центру экрана */
+        width: 100% !important;
+        gap: 10px !important;
+    }
+    .social-link {
+        padding: 10px 15px !important;
+        font-size: 13px !important;
+        flex: 1 !important; /* Поделят экран телефона поровну */
+        text-align: center !important;
     }
 
     .footer-map { width: 100% !important; max-width: 100% !important; }
