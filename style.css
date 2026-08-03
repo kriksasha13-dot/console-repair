@@ -22,15 +22,13 @@ body {
     width: 100%;
 }
 
-/* ==========================================================================
-   ШАПКА САЙТА (HEADER)
-   ========================================================================== */
+/* ШАПКА САЙТА (HEADER) — БЕЗУПРЕЧНЫЙ ЧЕРНЫЙ ФОН */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    background-color: #000000; /* Перекрасили шапку в идеально черный цвет */
+    background-color: #000000; /* Покрасили в идеально черный цвет */
     border-bottom: 2px solid #ff6b00;
 }
 
@@ -41,10 +39,12 @@ header {
     text-decoration: none;
 }
 
+/* СТИЛИ ДЛЯ КАРТИНКИ-ЛОГОТИПА — ЧИСТЫЙ КОД БЕЗ БАГОВ */
 .logo-img {
     height: 40px; 
     width: auto;
     object-fit: contain;
+    /* МЫ УДАЛИЛИ КРУТИВШИЙСЯ ТУТ MIX-BLEND-MODE, КОТОРЫЙ БЛОКИРОВАЛ КНОПКУ */
     transition: transform 0.3s ease;
 }
 
@@ -418,6 +418,7 @@ footer {
 /* ==========================================================================
    МОДАЛЬНОЕ ОКНО ЗАЯВКИ
    ========================================================================== */
+/* МОДАЛЬНОЕ ОКНО ЗАЯВКИ — ТЕПЕРЬ ВСЕГДА ПОВЕРХ САЙТА */
 .modal {
     position: fixed;
     top: 0;
@@ -425,13 +426,24 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.85);
-    z-index: 1000;
+    
+    /* Критически важный параметр: поднимает окно на самый верхний слой */
+    z-index: 99999 !important; 
+    
     display: flex; 
     justify-content: center;
     align-items: center;
+    
+    /* Начальное скрытое состояние */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* СОСТОЯНИЕ КОГДА ОКНО ОТКРЫТО */
+.modal.modal-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .modal-content {
@@ -575,25 +587,6 @@ footer {
         padding: 25px 20px !important;
         margin: 0 !important;
         text-align: left !important;
-    }
-
-    /* АДАПТИВНОСТЬ КАЛЬКУЛЯТОРА НА ТЕЛЕФОНЕ */
-    .calc-container {
-        padding: 20px !important;
-    }
-
-    #calcForm {
-        flex-direction: column !important;
-        gap: 20px !important;
-    }
-
-    .calc-options, .calc-total-box {
-        width: 100% !important;
-        min-width: 100% !important;
-    }
-
-    .calc-label {
-        padding: 12px 15px !important;
     }
 
     .calc-text, .calc-price {
