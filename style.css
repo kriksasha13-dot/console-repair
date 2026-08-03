@@ -22,6 +22,62 @@ body {
     width: 100%;
 }
 
+/* ==========================================================================
+   ГАРАНТИРОВАННЫЕ КНОПКИ МЕССЕНДЖЕРОВ (ПОВЕРХ ВСЕГО САЙТА)
+   ========================================================================== */
+.messenger-buttons {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    z-index: 999999 !important; /* Максимальный слой, который пробьет любую графику */
+}
+
+.msg-btn {
+    width: 60px !important; /* Немного увеличим для удобства */
+    height: 60px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    flex-direction: column !important; /* Картинка сверху, текст снизу */
+    justify-content: center !important;
+    align-items: center !important;
+    color: #ffffff !important;
+    font-size: 20px !important; /* Чуть уменьшим размер иконки */
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+/* Стили для букв VK и TG под иконками */
+.btn-msg-text {
+    font-size: 10px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    margin-top: 2px !important;
+    color: #ffffff !important;
+}
+
+.vk-btn {
+    background-color: #0077ff !important; /* Синий VK */
+}
+.vk-btn:hover {
+    background-color: #0066dd !important;
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.6) !important;
+}
+
+.tg-btn {
+    background-color: #229ed9 !important; /* Голубой Telegram */
+}
+.tg-btn:hover {
+    background-color: #1e8cb1 !important;
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 0 6px 20px rgba(34, 158, 217, 0.6) !important;
+}
+
 /* ШАПКА САЙТА (HEADER) — БЕЗУПРЕЧНЫЙ ЧЕРНЫЙ ФОН */
 header {
     display: flex;
@@ -534,6 +590,52 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+/* ==========================================================================
+   ПЛАВАЮЩИЕ КНОПКИ МЕССЕНДЖЕРОВ
+   ========================================================================== */
+.messenger-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999; /* Чтобы кнопки были поверх всех слоев сайта */
+}
+
+.msg-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 26px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Стили для кнопки VK */
+.vk-btn {
+    background-color: #0077ff; /* Фирменный синий цвет VK */
+}
+.vk-btn:hover {
+    background-color: #0066dd;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.4);
+}
+
+/* Стили для кнопки Telegram */
+.tg-btn {
+    background-color: #229ed9; /* Фирменный голубой цвет Telegram */
+}
+.tg-btn:hover {
+    background-color: #1e8cb1;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(34, 158, 217, 0.4);
+}
 
 /* ==========================================================================
    ПОЛНАЯ МОБИЛЬНАЯ АДАПТИВНОСТЬ
@@ -636,4 +738,15 @@ footer {
     .footer-map { width: 100% !important; max-width: 100% !important; }
     .map-placeholder { height: 160px !important; }
     .modal-content { padding: 25px 15px; width: 95%; }
+/* Уменьшаем кнопки мессенджеров на телефонах */
+    .messenger-buttons {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+    .msg-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+    }
 }
