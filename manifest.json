@@ -1,0 +1,22 @@
+{
+  "short_name": "SilverBox",
+  "name": "Ремонт приставок SilverBox",
+  "description": "Профессиональный ремонт и обслуживание PlayStation, Xbox и Nintendo",
+  "icons": [
+    {
+      "src": "logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ff6b00",
+  "display": "standalone",
+  "orientation": "portrait"
+}
