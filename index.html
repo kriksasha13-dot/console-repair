@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff6b00">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <!-- Основные SEO мета-теги -->
@@ -180,5 +182,15 @@
         </div>
     </div>
 <script src="script.js"></script>
+<script>
+    // Проверяем, поддерживает ли браузер технологии приложений
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('Приложение успешно активировано!'))
+                .catch(err => console.log('Ошибка активации приложения:', err));
+        });
+    }
+</script>
 </body>
 </html>
